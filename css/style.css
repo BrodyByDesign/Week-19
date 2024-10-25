@@ -29,31 +29,138 @@ body {
   justify-content: space-around;
   cursor: pointer;
 }
+/* Common styles for all grid areas */
 .heroGridArea {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  align-items: center;
-  display: flex;
-  position: relative;
+  display: flex;                  /* Flexbox to control layout inside the grid areas */
+  align-items: center;            /* Vertically center content */
+  justify-content: center;        /* Horizontally center content */
+  background-size: cover;         /* Ensure background image covers the entire area */
+  background-position: center;    /* Center the background image */
+}
+
 }
 #headline {
   border-bottom: 5px solid #ff6200;
   background-color: rgba(255, 255, 255, 0.8);
   position: absolute;
   top: 50%;
-  right: -5%;
+  right: -10%;
   transform: translateY(-50%);
   z-index: 10;
-  padding: 5%;
+  padding: 10px 20px;
 }
 
 
 
 /* Category Grid CSS */
+/* Subheading Styling */
+.subHeading {
+  text-align: center;
+  border-bottom: 2px solid black;
+  width: 300px;
+  margin: 50px auto;
+}
 
+/* Category Grid Styling */
+#categoryGrid {
+  margin: 0px 5%;
+  display: grid;
+  grid-template-rows: 300px 300px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+      "bookcases bedroom patio"
+      "couches couches desks";
+}
 
+/* Individual Grid Area Selectors */
+#bookcases {
+  grid-area: bookcases;
+  background-image: url('../images/bookcases.png');
+  background-size: cover;
+}
 
+#bedroom {
+  grid-area: bedroom;
+  background-image: url('../images/beds.png');
+  background-size: cover;
+}
+
+#patio {
+  grid-area: patio;
+  background-image: url('../images/patio.png');
+  background-size: cover;
+}
+
+#couches {
+  grid-area: couches;
+  background-image: url('../images/couch.png');
+  background-size: cover;
+}
+
+#desks {
+  grid-area: desks;
+  background-image: url('../images/desks.png');
+  background-size: cover;
+}
+
+/* Common Styling for Grid Areas */
+.categoryGridArea {
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  position: relative;
+}
+
+/* Heading class */
+.heading {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* Media Query for screens with max-width of 1000px */
+@media only screen and (max-width: 1000px) {
+  /* Hide the navigation when the screen width is below 1000px */
+  #navigation {
+      display: none;
+  }
+
+  /* Adjust the margin for icons */
+  .icons {
+      margin-left: auto;
+  }
+}
+/* Media Query for screens with max-width of 600px */
+@media only screen and (max-width: 600px) {
+  /* Adjust the headline */
+  #headline {
+      position: static;
+      margin: 20px;
+  }
+
+  /* Adjust the heroGrid layout for mobile */
+  #heroGrid {
+      grid-template-areas: 
+          "featuredProduct featuredProduct"
+          "secondaryProduct CTA";
+  }
+
+  /* Adjust the categoryGrid for mobile */
+  #categoryGrid {
+      grid-template-rows: 300px 300px 300px 300px 300px;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+          "bookcases"
+          "bedroom"
+          "patio"
+          "couches"
+          "desks";
+  }
+}
 
 /* Navigation CSS */
 /* CHECK OUT THIS CODE BELOW IF YOU WANT TO GET A REFRESHER ON FLEX */
@@ -118,4 +225,31 @@ h4 {
   font-weight: 300;
   margin: 0px 0px;
   color: #636364;
+}
+/* Media Query for screens with max-width of 600px */
+@media only screen and (max-width: 600px) {
+  /* Adjust the headline */
+  #headline {
+      position: static;
+      margin: 20px;
+  }
+
+  /* Adjust the heroGrid layout for mobile */
+  #heroGrid {
+      grid-template-areas: 
+          "featuredProduct featuredProduct"
+          "secondaryProduct CTA";
+  }
+
+  /* Adjust the categoryGrid for mobile */
+  #categoryGrid {
+      grid-template-rows: 300px 300px 300px 300px 300px;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+          "bookcases"
+          "bedroom"
+          "patio"
+          "couches"
+          "desks";
+  }
 }
